@@ -1,0 +1,44 @@
+(****************************************************************************)
+(*                                                                          *)
+(*                                                                          *)
+(*                           Solange Coupet-Grimal                          *)
+(*                                                                          *)
+(*                   Laboratoire d'Informatique de Marseille                *)
+(*                   URA CNRS 1787                                          *)
+(*                   Technopole de Chateau-Gombert                          *)
+(*                   39, Rue F. Joliot Curie                                *)
+(*                   13453 MARSEILLE Cedex 13                               *)
+(*                   e-mail:solange@gyptis.univ-mrs.fr                      *)
+(*                                                                          *)
+(*                           README                                         *)
+(****************************************************************************)
+
+
+
+The file trans_sys.v contains the specifications of the three different
+notions of equivalence classically defined on labelled transitions systems, 
+underlying the theories of process algebra (and particularly CCS), as well as 
+the proofs of their fundamentals properties.
+
+The section is parameterized with the set of states "process",
+the set of labels "action" and the transition relation "transition". 
+A particular action "T" stands for the silent action of process algebra. 
+We suppose that the predicate defined on "action"  by  "to be equal to T" 
+is decidable.
+
+"derivative" and "weak_derivative " corresponds to the two notions of
+derivatives introduced by Milner in the chapter 7 of the book 
+"A Calculus of Communicating Systems" (Prentice Hall).
+
+"strong_eq", "weak_eq", "obs_eq" respectively denote the strong equivalence, 
+the weak equivalence and the observational equivalence.
+
+In order to prove that these relations are equivalence relations, we 
+introduce the relation "weak_eq1" that is proven to be equivalent to "weak_eq"
+and the relation  "obs_eq1" that is proven to be equivalent to "obs_eq".
+
+Then, we prove that "strong_eq" is stronger than "obs_eq" and that "obs_eq" 
+is stronger than "weak_eq".
+
+A research report with more details will be available soon.
+
