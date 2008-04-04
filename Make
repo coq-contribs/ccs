@@ -1,2 +1,2 @@
--R . ccs
+-R . CCS
 Trans_Sys.v
