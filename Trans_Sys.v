@@ -238,7 +238,7 @@ CoInductive strong_eq : process -> process -> Prop :=
 
 
 Lemma refl_strong_eq : forall p : process, strong_eq p p.
-cofix.
+cofix refl_strong_eq.
 intros p; apply str_eq.
 intros a p' trans; exists p'; split; auto.
 intros a p' trans; exists p'; split; auto.
@@ -247,7 +247,7 @@ Qed.
 Hint Resolve refl_strong_eq.
 
 Lemma sym_strong_eq : forall p q : process, strong_eq p q -> strong_eq q p.
-cofix.
+cofix sym_strong_eq.
 intros p q H; inversion_clear H.
 apply str_eq.
 intros a q'.
@@ -266,7 +266,7 @@ Hint Immediate sym_strong_eq.
 Lemma trans_strong_eq :
  forall p q r : process, strong_eq p q -> strong_eq q r -> strong_eq p r.
 
-cofix.
+cofix trans_strong_eq.
 intros p q r pq qr.
 inversion_clear pq; inversion_clear qr.
 apply str_eq.
@@ -313,7 +313,7 @@ CoInductive weak_eq : process -> process -> Prop :=
 (****************** weak_eq is an equivalence Relation *********************)
 
 Lemma refl_weak_eq : forall p : process, weak_eq p p.
-cofix.
+cofix refl_weak_eq.
 intros p; apply w_eq.
 intros a p' trans; exists p'; split; auto.
 intros a p' trans; exists p'; split; auto.
@@ -322,7 +322,7 @@ Qed.
 Hint Resolve refl_weak_eq.
 
 Lemma sym_weak_eq : forall p q : process, weak_eq p q -> weak_eq q p.
-cofix.
+cofix sym_weak_eq.
 intros p q H; inversion_clear H.
 apply w_eq.
 intros a q'.
@@ -390,7 +390,7 @@ Qed.
 
 Lemma trans_weak_eq :
  forall p q r : process, weak_eq p q -> weak_eq q r -> weak_eq p r.
-cofix.
+cofix trans_weak_eq.
 intros p q r pq qr.
 apply w_eq.
 
@@ -497,7 +497,7 @@ Qed.
 
 
 Lemma weak_eq1_weak_eq : forall p q : process, weak_eq1 p q -> weak_eq p q.
-cofix.
+cofix weak_eq1_weak_eq.
 intros p q we1.
 apply w_eq.
 intros a p' tr.
@@ -523,7 +523,7 @@ Hint Immediate weak_eq1_weak_eq.
 
 Lemma weak_eq_weak_eq1 : forall p q : process, weak_eq p q -> weak_eq1 p q.
 
-cofix.
+cofix weak_eq_weak_eq1.
 intros p q we.
 apply w_eq1.
 intros a p' de.
@@ -774,7 +774,7 @@ Qed.
 (*************************** p~q->p=q->p~~q *******************************)
 
 Lemma strong_weak : forall p q : process, strong_eq p q -> weak_eq p q.
-cofix.
+cofix strong_weak.
 intros p q.
 intros H.
 inversion_clear H.
